@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(20, 100%, 45%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(152, 57%, 22%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(37, 84%, 67%);
+  --accent-foreground: hsl(20, 14.3%, 4.1%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --trust: hsl(207, 77%, 54%);
+  --neutral: hsl(200, 7%, 22%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(20, 100%, 45%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(152, 57%, 22%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Custom colors for Afri Soutien */
+.text-primary { color: hsl(20, 100%, 45%); }
+.bg-primary { background-color: hsl(20, 100%, 45%); }
+.border-primary { border-color: hsl(20, 100%, 45%); }
+
+.text-secondary { color: hsl(152, 57%, 22%); }
+.bg-secondary { background-color: hsl(152, 57%, 22%); }
+.border-secondary { border-color: hsl(152, 57%, 22%); }
+
+.text-accent { color: hsl(37, 84%, 67%); }
+.bg-accent { background-color: hsl(37, 84%, 67%); }
+.border-accent { border-color: hsl(37, 84%, 67%); }
+
+.text-trust { color: hsl(207, 77%, 54%); }
+.bg-trust { background-color: hsl(207, 77%, 54%); }
+.border-trust { border-color: hsl(207, 77%, 54%); }
+
+.text-neutral { color: hsl(200, 7%, 22%); }
+.bg-neutral { background-color: hsl(200, 7%, 22%); }
+.border-neutral { border-color: hsl(200, 7%, 22%); }
+
+/* Gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, hsl(20, 100%, 45%) 0%, hsl(20, 100%, 35%) 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, hsl(152, 57%, 22%) 0%, hsl(152, 57%, 32%) 100%);
+}
+
+/* African-inspired patterns and animations */
+.pattern-dots {
+  background-image: radial-gradient(circle, hsl(20, 100%, 45%) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Trust indicators */
+.verified-badge {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
+  background-color: hsl(207, 77%, 54%);
+  color: white;
+}
+
+/* Progress bars */
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full h-2;
+}
+
+.progress-fill {
+  @apply h-2 rounded-full transition-all duration-300;
+  background-color: hsl(152, 57%, 22%);
+}
+
+/* Hover effects */
+.hover-lift {
+  @apply transition-transform duration-200;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsl(60, 4.8%, 95.9%);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(20, 100%, 45%);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(20, 100%, 35%);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .mobile-padding {
+    @apply px-4;
+  }
+  
+  .mobile-text {
+    @apply text-sm;
+  }
+}
+
+/* Loading animations */
+.pulse-primary {
+  animation: pulse-primary 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-primary {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .7;
+  }
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors;
+}
+
+.form-button {
+  @apply px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+}
+
+/* Status indicators */
+.status-pending {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.status-approved {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-rejected {
+  @apply bg-red-100 text-red-800;
+}
+
+.status-completed {
+  @apply bg-blue-100 text-blue-800;
+}
+
+/* Card styles */
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-shadow-hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Typography */
+.font-header {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
